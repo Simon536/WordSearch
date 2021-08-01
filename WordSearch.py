@@ -202,7 +202,7 @@ class WordSearch():
 # Test Progamm for WordSearch Generator        
 if __name__ == '__main__':
     hiddenwords = ("Impact,Gaga")
-    w = WordSearch(hiddenwords, 5, 5)
+    w = WordSearch(hiddenwords, 8, 8)
     def printGrid(grid):
         for row in grid:
             for column in row:
