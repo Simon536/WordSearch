@@ -18,6 +18,7 @@ class WordSearch():
         searchWords = searchWords.split(",")
         if searchWords == ['']:
             searchWords = testWords
+        searchWords = [string.upper() for string in searchWords]
         self.searchWords = searchWords 
         for row in range(0, self.maxY):
             self.grid.append([])
@@ -86,10 +87,11 @@ class WordSearch():
         for row in self.grid:
             for i in range(len(row)):
                 if row[i] == '*':
-                    row[i] = 'abcdefghijklmnopqrstuvwxyz0123456789'[random.randint(0,25)]
+                    row[i] = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'[random.randint(0,25)]
     def letter(self,x,y):
         return self.grid[x][y]
     def findWords(self, words):
+        words = [string.upper() for string in words]
         for word in words:
             firstLetter = word[0]
             positions = None
@@ -197,9 +199,9 @@ class WordSearch():
         #
         return None
 
-# Test Progamm for WordSearch Genertator        
+# Test Progamm for WordSearch Generator        
 if __name__ == '__main__':
-    hiddenwords = ("Gugu,Gaga")
+    hiddenwords = ("Impact,Gaga")
     w = WordSearch(hiddenwords, 5, 5)
     def printGrid(grid):
         for row in grid:
