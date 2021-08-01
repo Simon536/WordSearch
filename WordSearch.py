@@ -199,8 +199,8 @@ class WordSearch():
 
 # Test Progamm for WordSearch Genertator        
 if __name__ == '__main__':
-    words = ("Gugu,Gaga")
-    w = WordSearch(words, 5, 5)
+    hiddenwords = ("Gugu,Gaga")
+    w = WordSearch(hiddenwords, 5, 5)
     def printGrid(grid):
         for row in grid:
             for column in row:
