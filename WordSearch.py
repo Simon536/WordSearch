@@ -108,94 +108,95 @@ class WordSearch():
             if found:
                 self.wordPosition[word] = positions
     def wordIsHere(self,word, firstX, firstY):
-         maxX = self.maxX
-         maxY = self.maxY
-         # horizontal
-         found = True; x = firstX; y = firstY; positions = []
-         for letter in word:
-             if x == maxX or letter != self.grid[y][x]:
-                 found = False
-                 break
-             positions.append((y, x))
-             x += 1
-         if found:
-             return positions
-         # vertical
-         found = True; x = firstX; y = firstY; positions = []
-         for letter in word:
-             if y == maxY or letter != self.grid[y][x]:
-                 found = False
-                 break
-             positions.append((y, x))
-             y += 1
-         if found:
-             return positions        
-         # reverse horizontal
-         found = True; x = firstX; y = firstY; positions = []
-         for letter in word:
-             if x == -1 or letter != self.grid[y][x]:
-                 found = False
-                 break
-             positions.append((y, x))
-             x -= 1
-         if found:
-             return positions
-         # reverse vertical
-         found = True; x = firstX; y = firstY; positions = []
-         for letter in word:
-             if y == -1 or letter != self.grid[y][x]:
-                 found = False
-                 break
-             positions.append((y, x))
-             y -= 1
-         if found:
-             return positions         
-         # diagonal
-         found = True; x = firstX; y = firstY; positions = []
-         for letter in word:
-             if y == maxY or x == maxX or letter != self.grid[y][x]:
-                 found = False
-                 break
-             positions.append((y, x))
-             x += 1
-             y += 1
-         if found:
-             return positions 
-         # reverse diagonal              
-         found = True; x = firstX; y = firstY; positions = []
-         for letter in word:
-             if y == -1 or x == -1 or letter != self.grid[y][x]:
-                 found = False
-                 break
-             positions.append((y, x))
-             x -= 1
-             y -= 1
-         if found:
-             return positions 
-         # flip diagonal
-         found = True; x = firstX; y = firstY; positions = []
-         for letter in word:
-             if y == -1 or x == maxX or letter != self.grid[y][x]:
-                 found = False
-                 break
-             positions.append((y, x))
-             x += 1
-             y -= 1
-         if found:
-             return positions
-         # reverse flip diagonal
-         found = True; x = firstX; y = firstY; positions = []
-         for letter in word:
-             if y == maxY or x == -1 or letter != self.grid[y][x]:
-                 found = False
-                 break
-             positions.append((y, x))
-             x -= 1
-             y += 1
-         if found:
-             return positions
-         #
-         return None  
+        maxX = self.maxX
+        maxY = self.maxY
+        # horizontal
+        found = True; x = firstX; y = firstY; positions = []
+        for letter in word:
+            if x == maxX or letter != self.grid[y][x]:
+                found = False
+                break
+            positions.append((y, x))
+            x += 1
+        if found:
+            return positions
+        # vertical
+        found = True; x = firstX; y = firstY; positions = []
+        for letter in word:
+            if y == maxY or letter != self.grid[y][x]:
+                found = False
+                break
+            positions.append((y, x))
+            y += 1
+        if found:
+            return positions        
+        # reverse horizontal
+        found = True; x = firstX; y = firstY; positions = []
+        for letter in word:
+            if x == -1 or letter != self.grid[y][x]:
+                found = False
+                break
+            positions.append((y, x))
+            x -= 1
+        if found:
+            return positions
+        # reverse vertical
+        found = True; x = firstX; y = firstY; positions = []
+        for letter in word:
+            if y == -1 or letter != self.grid[y][x]:
+                found = False
+                break
+            positions.append((y, x))
+            y -= 1
+        if found:
+            return positions         
+        # diagonal
+        found = True; x = firstX; y = firstY; positions = []
+        for letter in word:
+            if y == maxY or x == maxX or letter != self.grid[y][x]:
+                found = False
+                break
+            positions.append((y, x))
+            x += 1
+            y += 1
+        if found:
+            return positions 
+        # reverse diagonal              
+        found = True; x = firstX; y = firstY; positions = []
+        for letter in word:
+            if y == -1 or x == -1 or letter != self.grid[y][x]:
+                found = False
+                break
+            positions.append((y, x))
+            x -= 1
+            y -= 1
+        if found:
+            return positions 
+        # flip diagonal
+        found = True; x = firstX; y = firstY; positions = []
+        for letter in word:
+            if y == -1 or x == maxX or letter != self.grid[y][x]:
+                found = False
+                break
+            positions.append((y, x))
+            x += 1
+            y -= 1
+        if found:
+            return positions
+        # reverse flip diagonal
+        found = True; x = firstX; y = firstY; positions = []
+        for letter in word:
+            if y == maxY or x == -1 or letter != self.grid[y][x]:
+                found = False
+                break
+            positions.append((y, x))
+            x -= 1
+            y += 1
+        if found:
+            return positions
+        #
+        return None
+
 # Test Progamm for WordSearch Genertator        
 if __name__ == '__main__':
     words = ("Gugu,Gaga")
