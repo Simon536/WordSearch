@@ -207,5 +207,5 @@ if __name__ == '__main__':
                 print("%s" % column, end='')
             print()
     printGrid(w.grid)
-    w.findWords(words.split(','))
+    w.findWords(hiddenwords.split(','))
     print(w.wordPosition)
