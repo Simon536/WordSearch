@@ -6,7 +6,7 @@ class WordSearch():
     REVHORIZONTAL = 3
     REVVERTICAL = 4
     REVDIAGONAL = 5
-    REVFLIPDIAGONA = 6
+    REVFLIPDIAGONAL = 6
     FLIPDIAGONAL = 7
     DONTCARE = -100
     wordPosition = {}
@@ -69,7 +69,7 @@ class WordSearch():
         elif direction == self.FLIPDIAGONAL:
             x += 1
             y -= 1
-        elif direction == self.REVFLIPDIAGONA:
+        elif direction == self.REVFLIPDIAGONAL:
             x -= 1
             y += 1
         else:
