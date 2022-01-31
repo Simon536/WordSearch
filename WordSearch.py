@@ -199,7 +199,7 @@ class WordSearch():
         #
         return None
 
-# Test Progamm for WordSearch Generator
+# Test Program for WordSearch Generator
 if __name__ == '__main__':
     hiddenwords = ("Impact,Gaga")
     w = WordSearch(hiddenwords, 8, 8)
