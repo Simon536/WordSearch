@@ -10,9 +10,9 @@ class WordSearch():
     FLIPDIAGONAL = 7
     DONTCARE = -100
     wordPosition = {}
-    def __init__(self, searchWords, maxX = 20, maxY = 20):
-        self.maxX = maxX
-        self.maxY = maxY
+    def __init__(self, searchWords, max_x = 20, max_y = 20):
+        self.max_x = max_x
+        self.max_y = max_y
         self.grid = [] # grid is a list of list of strings (characters)
         testWords = ['superhero', 'gugu','gaga','blah','vodka']
         searchWords = searchWords.split(",")
@@ -20,9 +20,9 @@ class WordSearch():
             searchWords = testWords
         searchWords = [string.upper() for string in searchWords]
         self.searchWords = searchWords
-        for row in range(0, self.maxY):
+        for row in range(0, self.max_y):
             self.grid.append([])
-            for column in range(0, self.maxX):
+            for column in range(0, self.max_x):
                 self.grid[row].append('*')
         for word in searchWords:
             DIR = random.randint(0, 7)
@@ -36,14 +36,14 @@ class WordSearch():
         # check if we need to choose random pos
         if x == self.DONTCARE or y == self.DONTCARE: # cannot have one random, one fixed
             while True:
-                y = random.randint(0, self.maxY - 1)
-                x = random.randint(0, self.maxX - 1)
+                y = random.randint(0, self.max_y - 1)
+                x = random.randint(0, self.max_x - 1)
                 if self.grid[y][x] == '*':
                     break
         # check if x & y are valid
-        if x == self.maxX or x < 0:
+        if x == self.max_x or x < 0:
             return False
-        if y == self.maxY or y < 0:
+        if y == self.max_y or y < 0:
             return False
         if not (self.grid[y][x] == "*" or self.grid[y][x] == word[0]):
             return False
@@ -96,9 +96,9 @@ class WordSearch():
             firstLetter = word[0]
             positions = None
             y = 0; found = False
-            while y < self.maxY and not found:
+            while y < self.max_y and not found:
                 x = 0
-                while x < self.maxX and not found:
+                while x < self.max_x and not found:
                     if firstLetter == self.grid[y][x]:
                         positions  = self.wordIsHere(word, x, y)
                         if positions:
@@ -110,12 +110,12 @@ class WordSearch():
             if found:
                 self.wordPosition[word] = positions
     def wordIsHere(self,word, firstX, firstY):
-        maxX = self.maxX
-        maxY = self.maxY
+        max_x = self.max_x
+        max_y = self.max_y
         # horizontal
         found = True; x = firstX; y = firstY; positions = []
         for letter in word:
-            if x == maxX or letter != self.grid[y][x]:
+            if x == max_x or letter != self.grid[y][x]:
                 found = False
                 break
             positions.append((y, x))
@@ -125,7 +125,7 @@ class WordSearch():
         # vertical
         found = True; x = firstX; y = firstY; positions = []
         for letter in word:
-            if y == maxY or letter != self.grid[y][x]:
+            if y == max_y or letter != self.grid[y][x]:
                 found = False
                 break
             positions.append((y, x))
@@ -155,7 +155,7 @@ class WordSearch():
         # diagonal
         found = True; x = firstX; y = firstY; positions = []
         for letter in word:
-            if y == maxY or x == maxX or letter != self.grid[y][x]:
+            if y == max_y or x == max_x or letter != self.grid[y][x]:
                 found = False
                 break
             positions.append((y, x))
@@ -177,7 +177,7 @@ class WordSearch():
         # flip diagonal
         found = True; x = firstX; y = firstY; positions = []
         for letter in word:
-            if y == -1 or x == maxX or letter != self.grid[y][x]:
+            if y == -1 or x == max_x or letter != self.grid[y][x]:
                 found = False
                 break
             positions.append((y, x))
@@ -188,7 +188,7 @@ class WordSearch():
         # reverse flip diagonal
         found = True; x = firstX; y = firstY; positions = []
         for letter in word:
-            if y == maxY or x == -1 or letter != self.grid[y][x]:
+            if y == max_y or x == -1 or letter != self.grid[y][x]:
                 found = False
                 break
             positions.append((y, x))
