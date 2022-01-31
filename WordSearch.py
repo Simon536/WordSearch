@@ -19,7 +19,7 @@ class WordSearch():
         if searchWords == ['']:
             searchWords = testWords
         searchWords = [string.upper() for string in searchWords]
-        self.searchWords = searchWords 
+        self.searchWords = searchWords
         for row in range(0, self.maxY):
             self.grid.append([])
             for column in range(0, self.maxX):
@@ -40,16 +40,16 @@ class WordSearch():
                 x = random.randint(0, self.maxX - 1)
                 if self.grid[y][x] == '*':
                     break
-        # check if x & y are valid            
+        # check if x & y are valid
         if x == self.maxX or x < 0:
             return False
         if y == self.maxY or y < 0:
             return False
         if not (self.grid[y][x] == "*" or self.grid[y][x] == word[0]):
             return False
-        undovalue = self.grid[y][x]  
+        undovalue = self.grid[y][x]
         undox = x
-        undoy = y 
+        undoy = y
         self.grid[y][x] = word[0]
         # now need to write rest of the word
         if direction == self.HORIZONTAL:
@@ -68,10 +68,10 @@ class WordSearch():
             x -= 1
         elif direction == self.FLIPDIAGONAL:
             x += 1
-            y -= 1 
+            y -= 1
         elif direction == self.REVFLIPDIAGONA:
             x -= 1
-            y += 1             
+            y += 1
         else:
             print("This direction not implemented yet")
         if self.engrave(word[1:], x, y, direction):
@@ -82,7 +82,7 @@ class WordSearch():
             y = undoy
             x = undox
             self.grid[y][x] = undovalue
-            return False       
+            return False
     def obfusticate(self):
         for row in self.grid:
             for i in range(len(row)):
@@ -97,7 +97,7 @@ class WordSearch():
             positions = None
             y = 0; found = False
             while y < self.maxY and not found:
-                x = 0 
+                x = 0
                 while x < self.maxX and not found:
                     if firstLetter == self.grid[y][x]:
                         positions  = self.wordIsHere(word, x, y)
@@ -131,7 +131,7 @@ class WordSearch():
             positions.append((y, x))
             y += 1
         if found:
-            return positions        
+            return positions
         # reverse horizontal
         found = True; x = firstX; y = firstY; positions = []
         for letter in word:
@@ -151,7 +151,7 @@ class WordSearch():
             positions.append((y, x))
             y -= 1
         if found:
-            return positions         
+            return positions
         # diagonal
         found = True; x = firstX; y = firstY; positions = []
         for letter in word:
@@ -162,8 +162,8 @@ class WordSearch():
             x += 1
             y += 1
         if found:
-            return positions 
-        # reverse diagonal              
+            return positions
+        # reverse diagonal
         found = True; x = firstX; y = firstY; positions = []
         for letter in word:
             if y == -1 or x == -1 or letter != self.grid[y][x]:
@@ -173,7 +173,7 @@ class WordSearch():
             x -= 1
             y -= 1
         if found:
-            return positions 
+            return positions
         # flip diagonal
         found = True; x = firstX; y = firstY; positions = []
         for letter in word:
@@ -199,7 +199,7 @@ class WordSearch():
         #
         return None
 
-# Test Progamm for WordSearch Generator        
+# Test Progamm for WordSearch Generator
 if __name__ == '__main__':
     hiddenwords = ("Impact,Gaga")
     w = WordSearch(hiddenwords, 8, 8)
