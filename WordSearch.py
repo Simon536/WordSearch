@@ -10,23 +10,23 @@ class WordSearch():
     FLIPDIAGONAL = 7
     DONTCARE = -100
     wordPosition = {}
-    def __init__(self, searchWords, max_x = 20, max_y = 20):
+    def __init__(self, search_words, max_x = 20, max_y = 20):
         self.max_x = max_x
         self.max_y = max_y
         self.grid = [] # grid is a list of list of strings (characters)
         testWords = ['superhero', 'gugu','gaga','blah','vodka']
-        searchWords = searchWords.split(",")
-        if searchWords == ['']:
-            searchWords = testWords
-        searchWords = [string.upper() for string in searchWords]
-        self.searchWords = searchWords
+        search_words = search_words.split(",")
+        if search_words == ['']:
+            search_words = testWords
+        search_words = [string.upper() for string in search_words]
+        self.search_words = search_words
         for row in range(0, self.max_y):
             self.grid.append([])
             for column in range(0, self.max_x):
                 self.grid[row].append('*')
-        for word in searchWords:
-            DIR = random.randint(0, 7)
-            while not self.engrave(word, self.DONTCARE , self.DONTCARE , DIR):
+        for word in search_words:
+            word_direction = random.randint(0, 7)
+            while not self.engrave(word, self.DONTCARE , self.DONTCARE , word_direction):
                 pass
         self.obfusticate()
     def engrave(self, word, x, y, direction):
@@ -203,11 +203,11 @@ class WordSearch():
 if __name__ == '__main__':
     HIDDEN_WORDS = ("Impact,Gaga")
     w = WordSearch(HIDDEN_WORDS, 8, 8)
-    def printGrid(grid):
+    def print_grid(grid):
         for row in grid:
             for column in row:
                 print("%s" % column, end='')
             print()
-    printGrid(w.grid)
+    print_grid(w.grid)
     w.findWords(HIDDEN_WORDS.split(','))
     print(w.wordPosition)
