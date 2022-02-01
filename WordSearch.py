@@ -201,13 +201,13 @@ class WordSearch():
 
 # Test Program for WordSearch Generator
 if __name__ == '__main__':
-    hiddenwords = ("Impact,Gaga")
-    w = WordSearch(hiddenwords, 8, 8)
+    HIDDEN_WORDS = ("Impact,Gaga")
+    w = WordSearch(HIDDEN_WORDS, 8, 8)
     def printGrid(grid):
         for row in grid:
             for column in row:
                 print("%s" % column, end='')
             print()
     printGrid(w.grid)
-    w.findWords(hiddenwords.split(','))
+    w.findWords(HIDDEN_WORDS.split(','))
     print(w.wordPosition)
