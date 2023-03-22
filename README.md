@@ -1,7 +1,7 @@
 # WordSearch
 ## A Word Search Generator for Python.
 ------------------------------------------------------------------------------------------------------------------------------
-## How to use the ***Word Search Generator***
+## How to use
 ------------------------------------------------------------------------------------------------------------------------------
 #### How to import the ***the word search Generator***
 
@@ -24,9 +24,9 @@ w = WordSearch(words,x,y)
 ------------------------------------------------------------------------------------------------------------------------------
 ### Methods
 > ``` WordSearch.letter(row, column) ```                                                                                       
- Discription: it returns a letter (string) in the defined parameters                                                           
+ Description: it returns a letter (string) in the defined parameters                                                           
 > ```WordSearch.findWords(words)```                                                                                            
-Discription: it searches the words in Grid. (Note: words is a list and is not seperated by commas.) It returns a dictionary where the key is the word and value is a list of tuples(Note:that the tuples are in that order: (y,x)) of the positions the letters
+Description: it searches the words in Grid. (Note: words is a list and is not seperated by commas.) It returns a dictionary where the key is the word and value is a list of tuples(Note:that the tuples are in that order: (y,x)) of the positions the letters
  ### Properties
  > ```WordSearch.Grid```                                                     
  Description: It is the WordSearch Grid where all letters are stored.                                                          
